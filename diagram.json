@@ -1,0 +1,45 @@
+{
+    "version": 1,
+    "author": "Ashish Mishra",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 62.16, "left": 111.42, "attrs": {} },
+      { "type": "wokwi-rgb-led", "id": "rgb1", "top": 14.1, "left": 275.58, "attrs": {} },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 94.64,
+        "left": 254.23,
+        "rotate": 90,
+        "attrs": { "value": "1000" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r2",
+        "top": 94.7,
+        "left": 272.17,
+        "rotate": 90,
+        "attrs": { "value": "1000" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r4",
+        "top": 94.9,
+        "left": 292.86,
+        "rotate": 90,
+        "attrs": { "value": "1000" }
+      }
+    ],
+    "connections": [
+      [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+      [ "rgb1:B", "r4:1", "green", [ "v0" ] ],
+      [ "rgb1:G", "r2:1", "green", [ "v0" ] ],
+      [ "rgb1:R", "r1:1", "green", [ "v0" ] ],
+      [ "r4:2", "esp:D19", "green", [ "h-0.83", "v12.65" ] ],
+      [ "r2:2", "esp:D18", "green", [ "h-0.22", "v23.59" ] ],
+      [ "r1:2", "esp:D5", "green", [ "h0.66", "v100.37" ] ],
+      [ "rgb1:COM", "esp:3V3", "green", [ "v0" ] ]
+    ],
+    "dependencies": {}
+  }
